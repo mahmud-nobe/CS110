@@ -1,6 +1,7 @@
 import unittest
 
 from Assignments.cs110_assignment_2.Activities.Activity_Module import Activity
+from Assignments.cs110_assignment_2.Activities.Queue_Module import *
 from Assignments.cs110_assignment_2.Activities.Task_Module import *
 
 
@@ -220,3 +221,19 @@ class TestActivity(unittest.TestCase):
             len(self.activity_1.tasks) == 2,
             "Activity 1 should now have 2 tasks"
         )
+
+
+class TestQueues(unittest.TestCase):
+
+    def test_heapify(self):
+        A = [4, 1, 3, 2, 16, 9, 10, 14, 8, 7]
+        my_heap = MaxHeapq()
+
+        for key in A:
+            my_heap.heappush(key)
+
+        for i, key in enumerate(my_heap.heap):
+            if i != 0:
+                self.assertTrue(
+                    key <= my_heap.heap[my_heap.parent(i)]
+                )

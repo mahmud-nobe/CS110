@@ -171,7 +171,7 @@ class Task:
 
     def __update_status(self) -> None:
         """Updates the status of the given task based on the duration remaining"""
-        if self.duration <= 0:
+        if self.__duration <= 0:
             self.__status = status.COMPLETED
             self.__duration = 0
             self.__clear_dependants()
@@ -211,7 +211,11 @@ class Task:
         return f"Task: {self.id} - {self.description}, remaining time: {self.duration} minutes"
 
     def __gt__(self, other) -> bool:
-        return self.duration > other.duration
+        if isinstance(other, Task):
+            return self.duration > other.duration
+        return self.duration > other
 
     def __lt__(self, other) -> bool:
-        return self.duration < other.duration
+        if isinstance(other, Task):
+            return self.duration < other.duration
+        return self.duration < other
