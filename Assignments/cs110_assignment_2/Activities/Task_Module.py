@@ -23,8 +23,8 @@ class Task:
     __id_generator = (x for x in range(1, 99999999, 1))
     """It produces a new id for each instantiation of the Task class"""
 
-    __tasks = {}
-    """A dictionary that contains all the tasks instantiated by the class"""
+    __tasks = []
+    """A list that contains all the tasks instantiated by the class"""
 
     def __init__(self, minutes: float, description: str, activity=None, *dependencies) -> None:
         self.__id: int = Task.__id_generator.__next__()
@@ -39,7 +39,7 @@ class Task:
         if not len(dependencies) == 0:
             self.add_dependency(*dependencies)
         self.__dependants: dict = {}
-        Task.increase_tasks(self)
+        Task.__tasks.append(self)
 
     @property
     def id(self) -> int:
@@ -57,9 +57,11 @@ class Task:
 
     @activity.setter
     def activity(self, activity):
-        if self.__activity: self.__activity.remove_tasks(self)
+        if self.__activity:
+            self.__activity.remove_tasks(self)
         self.__activity = activity
-        if activity: activity.add_tasks(self)
+        if activity:
+            activity.add_tasks(self)
 
     @property
     def original_duration(self) -> float:
@@ -189,24 +191,20 @@ class Task:
         self.__activity = None
 
     @classmethod
-    def increase_tasks(cls, task):
-        cls.__tasks[task.id] = task
-
-    @classmethod
     def all_tasks(cls) -> List:
         """
         Produces all the objects instantiated by the class
         :return:
             All the tasks
         """
-        return list(cls.__tasks.values())
+        return cls.__tasks
 
     @classmethod
     def reset(cls) -> None:
         """Deletes all the tasks that have ever been instantiated"""
         for task in cls.all_tasks():
             del task
-        cls.__tasks = {}
+        cls.__tasks = []
         cls.__id_generator = (x for x in range(1, 99999999, 1))
 
     def __str__(self) -> str:
