@@ -215,7 +215,17 @@ class Task:
             return self.duration > other.duration
         return self.duration > other
 
+    def __ge__(self, other) -> bool:
+        if isinstance(other, Task):
+            return self.duration >= other.duration
+        return self.duration >= other
+
     def __lt__(self, other) -> bool:
         if isinstance(other, Task):
             return self.duration < other.duration
         return self.duration < other
+
+    def __le__(self, other) -> bool:
+        if isinstance(other, Task):
+            return self.duration <= other.duration
+        return self.duration <= other
