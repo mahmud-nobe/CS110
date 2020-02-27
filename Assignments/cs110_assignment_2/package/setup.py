@@ -11,5 +11,6 @@ setuptools.setup(
     description="A Activity and Tasks package",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    url="https://github.com/Inventrohyder/CS110/tree/master/Assignments/cs110_assignment_2/package",
     packages=setuptools.find_packages()
 )
