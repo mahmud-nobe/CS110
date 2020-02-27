@@ -1,8 +1,8 @@
 import unittest
 
-from Assignments.cs110_assignment_2.Activities.Activity_Module import Activity
-from Assignments.cs110_assignment_2.Activities.Queue_Module import *
-from Assignments.cs110_assignment_2.Activities.Task_Module import *
+from ActivityTasks import Activity
+from ActivityTasks import MaxHeapq
+from ActivityTasks import Task, status
 
 
 class TestTask(unittest.TestCase):
@@ -237,3 +237,6 @@ class TestQueues(unittest.TestCase):
                 self.assertTrue(
                     key <= my_heap.heap[my_heap.parent(i)]
                 )
+
+if __name__ == '__main__':
+    unittest.main()

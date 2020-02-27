@@ -1,4 +1,4 @@
-from Assignments.cs110_assignment_2.Activities.Task_Module import *
+from .Task_Module import Task
 
 
 class MultiTask(Task):
