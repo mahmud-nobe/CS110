@@ -5,7 +5,7 @@ with open("./ActivityTasks/README.md", "r") as fh:
 
 setuptools.setup(
     name="activityTasks-udacity-inventrohyder", 
-    version="0.1.0a0.1",
+    version="0.1.0a",
     author="Haitham Alhad",
     author_email="haitham.hyder@minerva.kgi.edu",
     description="A Activity and Tasks package",
