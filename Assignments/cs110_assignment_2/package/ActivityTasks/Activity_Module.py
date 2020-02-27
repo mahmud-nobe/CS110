@@ -1,6 +1,6 @@
 from typing import List
 
-from Assignments.cs110_assignment_2.Activities.Task_Module import Task
+from .Task_Module import Task
 
 
 class Activity:
