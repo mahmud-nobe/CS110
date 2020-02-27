@@ -2,7 +2,7 @@ import unittest
 
 from ActivityTasks import Activity
 from ActivityTasks import MaxHeapq
-from ActivityTasks import Task
+from ActivityTasks import Task, status
 
 
 class TestTask(unittest.TestCase):
