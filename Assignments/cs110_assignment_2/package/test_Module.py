@@ -237,3 +237,6 @@ class TestQueues(unittest.TestCase):
                 self.assertTrue(
                     key <= my_heap.heap[my_heap.parent(i)]
                 )
+
+if __name__ == '__main__':
+    unittest.main()
