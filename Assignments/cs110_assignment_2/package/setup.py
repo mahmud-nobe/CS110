@@ -4,7 +4,7 @@ with open("./ActivityTasks/README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="activityTasks-Udacity-inventrohyder", 
+    name="activityTasks-udacity-inventrohyder", 
     version="0.1.0-0.1.0",
     author="Haitham Alhad",
     author_email="haitham.hyder@minerva.kgi.edu",
